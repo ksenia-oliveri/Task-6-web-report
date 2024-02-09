@@ -41,7 +41,9 @@ class ReportController extends Controller
         {
             $result[] = implode(' | ', $driver);
         }
-        return json_encode($result);
+        return $result;
+
+
     }
 
 }
