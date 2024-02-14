@@ -17,12 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::view('/report', 'report');
 
 Route::view('/report/drivers', 'drivers');
 
-Route::get('/report/drivers/{id}', function(string $id){
+Route::get('report/drivers/{id}', function(string $id){
     $obj = new DriversInfoController();
     $info = [];
     foreach($obj->getDriverInfo() as $line)
@@ -40,4 +39,4 @@ Route::get('/report/drivers/{id}', function(string $id){
     
 })->name('driversInfo');
 
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome');
