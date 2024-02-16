@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/report', 'report');
+Route::get('/report', [ReportController::class, 'BuildReport'])->name('commonStatistic');
 
-Route::view('/report/drivers', 'drivers');
+$url = route('commonStatistic', ['order' => 'desc']);
+
+Route::get('/report/drivers', [DriversController::class, 'ReportController'])->name('driversList');
+
+$url2 = route('driversList', ['order' => 'desc']);
 
 Route::get('report/drivers/{id}', function(string $id){
     $obj = new DriversInfoController();
