@@ -9,7 +9,7 @@
     <h1>List of drivers</h1>
     @foreach($drivers as $driver)
     <div>
-        <a href= '{{ route('report.drivers', ['drivers_id' => request($driver['short-name'])])}}'>{{ $driver['short-name'] }}</a> -- {{ $driver['name']}}
+        <a href= '{{ route('report.drivers', ['drivers_id' => $driver['short-name']])}}'>{{ $driver['short-name'] }}</a> -- {{ $driver['name']}}
         
     </div>
     @endforeach   

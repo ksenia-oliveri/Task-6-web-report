@@ -49,7 +49,10 @@ class ReportController extends Controller
             $names = explode('_', $line);
             $listOfDrivers[] = ['short-name' => $names[0], 'name' => $names[1]];
         }
-        return view('drivers', ['drivers' => $listOfDrivers]);
+        
+        return view('drivers', ['drivers' => $listOfDrivers, 'driver_id' => request('driver_id')]);
+    
     }
+
 
 }
