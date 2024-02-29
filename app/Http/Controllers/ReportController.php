@@ -10,7 +10,6 @@ class ReportController extends Controller
     public function BuildReport()
     {
         $report = [];
-        $result = [];
         foreach(file('../data/abbreviations.txt') as $line)
         {
             $names = explode('_', $line);
@@ -31,19 +30,26 @@ class ReportController extends Controller
                     }   
                 }    
             }
-           $report[] = [$names[1], trim($names[2]), $timeDiff];
+           $report[] = ['short-name' => $names[0], 'name' => $names[1], 'car' => trim($names[2]), 'time' => $timeDiff];
+
            usort($report, function($a, $b)
            {
-            return $a[2] > $b[2];
+            return $a['time'] > $b['time'];
            });   
         }
-        foreach($report as $driver)
+
+        return view('report', ['report' => $report]);
+    }
+
+    public function getDriversList()
+    {
+        $listOfDrivers = [];
+        foreach(file('../data/abbreviations.txt') as $line)
         {
-            $result[] = implode(' | ', $driver);
+            $names = explode('_', $line);
+            $listOfDrivers[] = ['short-name' => $names[0], 'name' => $names[1]];
         }
-        return $result;
-
-
+        return view('drivers', ['drivers' => $listOfDrivers]);
     }
 
 }

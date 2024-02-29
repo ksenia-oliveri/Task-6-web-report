@@ -7,18 +7,15 @@
 </head>
 <body>
     <h1>Web report of Monaco 2018 Racing</h1>
-    <ul>
-        <?php
+    <div>
 
-use App\Http\Controllers\ReportController;
+    </div>
 
-        $obj = new ReportController();
-        $report = $obj->BuildReport();
-        foreach($report as $driver)
-        { ?>
-            <li><?php echo $driver; ?></li>
-    
-        <?php  } ?>
-    </ul>
+    @foreach($report as $driver)
+        <div>
+            {{ $driver['name'] }} | {{ $driver['car']}} | {{ $driver['time']}}
+        </div>
+    @endforeach
+        
 </body>
 </html>
