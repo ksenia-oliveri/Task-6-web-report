@@ -7,11 +7,19 @@
 </head>
 <body>
     <h1>List of drivers</h1>
+    @if($order == 'desc')
+    @foreach(array_reverse($drivers) as $driver)
+        <div>
+        <a href= '{{ route('report.drivers.info', ['driver_id' => $driver['short-name']])}}'>{{ $driver['short-name'] }}</a> -- {{ $driver['name']}}
+        </div>
+    @endforeach
+    @else
     @foreach($drivers as $driver)
     <div>
-        <a href= '{{ route('report.drivers', ['drivers_id' => $driver['short-name']])}}'>{{ $driver['short-name'] }}</a> -- {{ $driver['name']}}
-        
+        <a href= '{{ route('report.drivers.info', ['driver_id' => $driver['short-name']])}}'>{{ $driver['short-name'] }}</a> -- {{ $driver['name']}}    
     </div>
-    @endforeach   
+    @endforeach  
+    
+    @endif
 </body>
 </html>

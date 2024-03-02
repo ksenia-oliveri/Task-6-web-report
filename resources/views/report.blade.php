@@ -10,12 +10,21 @@
     <div>
 
     </div>
+    @if($order == 'desc')
+    @foreach(array_reverse($report) as $driver)
+        <div>
+            {{ $driver['name'] }} | {{ $driver['car']}} | {{ $driver['time']}}
+        </div>
+    @endforeach 
 
+    @else
     @foreach($report as $driver)
         <div>
             {{ $driver['name'] }} | {{ $driver['car']}} | {{ $driver['time']}}
         </div>
     @endforeach
+    @endif
+   
         
 </body>
 </html>

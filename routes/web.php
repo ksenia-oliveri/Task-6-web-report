@@ -17,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/report', [ReportController::class, 'BuildReport'])->name('report');
+Route::get('/report', [ReportController::class, 'GetReport'])->name('report');
 
-Route::get('/report/drivers/', [ReportController::class, 'getDriversList'])->name('report.drivers');
+Route::get('/report/drivers', [ReportController::class, 'GetDriversList'])->name('report.drivers');
+
+Route::get('/report/drivers/info', [ReportController::class, 'GetDriverInfo'])->name('report.drivers.info');
 
 
 
