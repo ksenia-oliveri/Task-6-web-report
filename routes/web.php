@@ -25,4 +25,4 @@ Route::get('/report/drivers/info', [ReportController::class, 'GetDriverInfo'])->
 
 
 
-// Route::view('/', 'welcome');
+Route::view('/', 'welcome');

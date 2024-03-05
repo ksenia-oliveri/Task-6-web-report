@@ -19,7 +19,6 @@
         <a href= '{{ route('report.drivers.info', ['driver_id' => $driver['short-name']])}}'>{{ $driver['short-name'] }}</a> -- {{ $driver['name']}}    
     </div>
     @endforeach  
-    
     @endif
 </body>
 </html>

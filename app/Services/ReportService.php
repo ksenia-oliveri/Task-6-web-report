@@ -6,15 +6,15 @@ class ReportService
     public function BuildReport()
     {
         $report = [];
-        foreach(file('../data/abbreviations.txt') as $line)
+        foreach(file('/home/ksjusha/Documents/Task-6/data/abbreviations.txt') as $line)
         {
             $names = explode('_', $line);
-            foreach(file('../data/start.log') as $start)
+            foreach(file('/home/ksjusha/Documents/Task-6/data/start.log') as $start)
             {
                 $driverStart = explode('_', $start);
                 if(mb_substr($driverStart[0], 0, 3) == $names[0])
                 {
-                    foreach(file('../data/end.log') as $end)
+                    foreach(file('/home/ksjusha/Documents/Task-6/data/end.log') as $end)
                     {
                         $driverEnd = explode('_', $end);
                         if($driverStart[0] == $driverEnd[0])
