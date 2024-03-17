@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ReportTest extends TestCase
@@ -27,7 +25,7 @@ class ReportTest extends TestCase
 
         $response->assertSee('List of drivers');
 
-        $response->assertSee('http://localhost/report/drivers/info?driver_id=SVF');
+        $response->assertSee('Lewis Hamilton');
     }
 
     public function test_driver_info_page_contains_info_about_the_driver(): void
