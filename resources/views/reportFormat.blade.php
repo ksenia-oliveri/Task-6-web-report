@@ -8,7 +8,7 @@
 <body>
     @if($format == 'json')
     <div>
-        {{ json_encode($report) }}
+        {{ response()->json($report) }} // json_encode($report)
     </div>
     @elseif($format == 'xml')
     <div>

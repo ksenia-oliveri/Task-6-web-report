@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ReportApiController;
+use App\Http\Controllers\api\ReportApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('report', [ReportApiController::class, 'getFormat']);
+Route::get('/v1/report', [ReportApiController::class, 'getFormat']);

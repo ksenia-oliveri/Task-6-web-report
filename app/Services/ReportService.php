@@ -27,7 +27,7 @@ class ReportService
                     }   
                 }    
             }
-           $report['driver'] = ['short-name' => $names[0], 'name' => $names[1], 'car' => trim($names[2]), 'time' => $timeDiff];
+           $report[] = ['short-name' => $names[0], 'name' => $names[1], 'car' => trim($names[2]), 'time' => $timeDiff];
 
            usort($report, function($a, $b)
            {
