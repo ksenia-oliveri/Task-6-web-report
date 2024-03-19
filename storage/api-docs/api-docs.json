@@ -1,0 +1,33 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Report of Monaco racing 2018",
+        "description": "List of drivers",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/report": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get list of drivers",
+                "description": "Returns list of drivers",
+                "operationId": "getReport",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security_example": []
+                    }
+                ]
+            }
+        }
+    }
+}
