@@ -8,14 +8,12 @@
 <body>
     @if($format == 'json')
     <div>
-        {{ response()->json($report) }} // json_encode($report)
+        {{ response()->json($report) }} 
     </div>
     @elseif($format == 'xml')
     <div>
         {{ file_get_contents('report_XML_Format.xml') }}
         
-    </div>
-    
     @endif
 </body>
 </html>

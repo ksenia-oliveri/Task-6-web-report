@@ -40,8 +40,7 @@ class ReportApiController extends Controller
     {
         $obj = new ReportService();
         $report = $obj->BuildReport();
-
-       
+        
         $xml = new SimpleXMLElement('<drivers/>');    
             foreach($report as $driver)
             {   
