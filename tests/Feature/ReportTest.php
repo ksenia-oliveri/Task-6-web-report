@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Http\Controllers\api\ReportApiController;
+use App\Services\ReportService;
 use Tests\TestCase;
 
 class ReportTest extends TestCase
@@ -27,7 +27,7 @@ class ReportTest extends TestCase
 
         $response->assertSee('List of drivers');
 
-        $response->assertSee('http://localhost/report/drivers/info?driver_id=SVF');
+        $response->assertSee('Lewis Hamilton');
     }
 
     public function test_driver_info_page_contains_info_about_the_driver(): void
@@ -38,6 +38,21 @@ class ReportTest extends TestCase
 
         $response->assertSee('Info about the driver');
 
+    }
+
+    public function test_api_returns_report(): void
+    {   
+        // $response = $this->get('/api/v1/report/');
+        // $response->assertStatus(200); вот это работает 
+
+        $response = $this->getJson('/api/v1/report/?format=json');
+          
+        $obj = new ReportService();
+        $report = $obj->BuildReport();
+
+        $response->assertJson(response()->json([200, $report])); // А тут пишет Invalid JSON was returned from the route. 
+        
+        
     }
 
 
